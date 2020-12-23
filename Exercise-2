@@ -1,0 +1,32 @@
+function store(stock, ordered) {
+    let stockObj = {};
+    for (let i = 0; i < stock.length; i += 2) {
+        let product = stock[i];
+        let quant = Number(stock[i + 1]);
+        stockObj[product] = quant;
+    }
+    for (let i = 0; i < ordered.length; i += 2) {
+        let product = ordered[i];
+        let quant = Number(ordered[i + 1]);
+
+        if (stockObj.hasOwnProperty(product)) {
+            Number(stockObj[product] += quant);
+
+
+        } else {
+            stockObj[product] = quant;
+        }
+    }
+
+    let objKeys = Object.keys(stockObj);
+    for (const key of objKeys) {
+        console.log(`${key} -> ${stockObj[key]}`);
+    }
+}
+
+store([
+    'Chips', '5', 'CocaCola', '9', 'Bananas', '14', 'Pasta', '4', 'Beer', '2'
+],
+    [
+        'Flour', '44', 'Oil', '12', 'Pasta', '7', 'Tomatoes', '70', 'Bananas', '30'
+    ]);
