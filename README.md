@@ -1,2 +1,2 @@
-# SoftUni
+# SoftUni JS Fundamentals
 Homework
